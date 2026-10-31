@@ -1,121 +1,1634 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azmain Fashion BD - Premium Clothing Store</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Azmain Fashion BD | Premium Men's Fashion</title>
+
+<meta name="description"
+content="Azmain Fashion BD - Cumilla. Premium quality men's Shirt, T-Shirt, Jacket and Trouser.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#f6f6f6;
+    color:#171717;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#111;
+    color:white;
+    box-shadow:0 2px 15px #0003;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#aaa;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+nav a{
+    font-size:14px;
+    color:#eee;
+}
+
+nav a:hover{
+    color:#aaa;
+}
+
+.menu{
+    display:none;
+    background:none;
+    border:1px solid #555;
+    color:white;
+    padding:7px 10px;
+    border-radius:6px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    background:linear-gradient(120deg,#080808,#292929);
+    color:white;
+    padding:95px 0;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #777;
+    border-radius:30px;
+    padding:7px 14px;
+    margin-bottom:18px;
+    font-size:13px;
+    color:#ddd;
+}
+
+.hero h1{
+    font-size:clamp(38px,6vw,70px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#cfcfcf;
+}
+
+.hero p{
+    font-size:18px;
+    color:#ddd;
+    max-width:650px;
+    margin-bottom:28px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 21px;
+    border-radius:8px;
+    border:1px solid white;
+    background:white;
+    color:#111;
+    font-weight:700;
+    margin:5px;
+}
+
+.btn.dark{
+    background:#222;
+    color:white;
+    border-color:#555;
+}
+
+.hero-card{
+    border:1px solid #555;
+    border-radius:20px;
+    padding:35px;
+    background:#ffffff0a;
+    backdrop-filter:blur(8px);
+}
+
+.hero-card h3{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.hero-card p{
+    font-size:15px;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:75px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e2e2e2;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 6px 22px #0000000b;
+}
+
+.product-img{
+    height:220px;
+    background:linear-gradient(135deg,#111,#555);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:35px;
+    font-weight:800;
+}
+
+.product-body{
+    padding:20px;
+}
+
+.product-body h3{
+    margin-bottom:7px;
+}
+
+.product-body p{
+    font-size:14px;
+    color:#666;
+    min-height:48px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:800;
+    margin:13px 0;
+}
+
+.order-btn{
+    width:100%;
+    border:0;
+    border-radius:7px;
+    padding:11px;
+    background:#111;
+    color:white;
+}
+
+/* ================= OFFER ================= */
+
+.offer{
+    background:#151515;
+    color:white;
+}
+
+.offer-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+}
+
+.offer h2{
+    font-size:32px;
+}
+
+.offer p{
+    color:#ccc;
+}
+
+/* ================= WHY US ================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    border:1px solid #e3e3e3;
+}
+
+.feature .icon{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+/* ================= REVIEWS ================= */
+
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.review{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    border:1px solid #e3e3e3;
+}
+
+.stars{
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+/* ================= FAQ ================= */
+
+.faq{
+    max-width:850px;
+    margin:auto;
+}
+
+details{
+    background:white;
+    border:1px solid #ddd;
+    margin-bottom:10px;
+    border-radius:9px;
+    padding:16px 20px;
+}
+
+summary{
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.contact-card{
+    background:white;
+    padding:30px;
+    border-radius:14px;
+    border:1px solid #ddd;
+}
+
+.contact-card h3{
+    margin-bottom:15px;
+}
+
+.contact-card p{
+    margin:8px 0;
+    color:#555;
+}
+
+.form{
+    display:grid;
+    gap:12px;
+}
+
+.form input,
+.form textarea,
+.form select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:7px;
+    background:white;
+}
+
+.form textarea{
+    min-height:120px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background:#0e0e0e;
+    color:#ddd;
+    padding:45px 0 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer h3,
+.footer h4{
+    color:white;
+    margin-bottom:12px;
+}
+
+.footer p,
+.footer a{
+    color:#aaa;
+    font-size:14px;
+}
+
+.footer-links{
+    display:grid;
+    gap:7px;
+}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid #333;
+    margin-top:30px;
+    padding-top:18px;
+    color:#777;
+    font-size:13px;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    background:#25D366;
+    color:white;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    z-index:999;
+    box-shadow:0 5px 20px #0004;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#0008;
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:min(500px,100%);
+    border-radius:14px;
+    padding:28px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    background:none;
+    border:0;
+    font-size:25px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .features,
+    .reviews{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    nav{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        background:#111;
+        padding:18px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    nav.open{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .offer-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .hero{
+        padding:65px 0;
+    }
+}
+</style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800" x-data="{ cart: [], showCart: false, orderSuccess: false }">
 
-    <!-- Header / Navbar -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl font-bold text-indigo-600">AZMAIN FASHION BD</span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <button @click="showCart = true" class="relative bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium flex items-center space-x-2 hover:bg-indigo-700 transition">
-                    🛒 কার্ট (<span x-text="cart.length">0</span>)
-                </button>
-            </div>
-        </div>
-    </header>
+<body>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16 px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl font-extrabold mb-4">স্টাইলিশ ও প্রিমিয়াম কোয়ালিটির পোশাক</h1>
-            <p class="text-lg mb-6">সাশ্রয়ী মূল্যে সেরা ট্রেন্ডি কালেকশন এখন আপনার হাতের মুঠোয়। ঘরে বসেই অর্ডার করুন!</p>
-            <a href="#products" class="bg-white text-indigo-600 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-100 transition">লেকশন দেখুন</a>
-        </div>
-    </section>
+<!-- ================= HEADER ================= -->
 
-    <!-- Products Section -->
-    <main id="products" class="max-w-7xl mx-auto px-4 py-12">
-        <h2 class="text-2xl font-bold mb-8 text-center border-b pb-4">আমাদের জনপ্রিয় কালেকশন</h2>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <!-- Product 1 -->
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden border hover:shadow-lg transition">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80" alt="T-Shirt" class="w-full h-64 object-cover">
-                <div class="p-5">
-                    <h3 class="font-bold text-lg mb-1">প্রিমিয়াম কটন ক্যাজুয়াল টি-শার্ট</h3>
-                    <p class="text-indigo-600 font-bold text-xl mb-4">৳ ৬৫০</p>
-                    <button @click="cart.push({name: 'প্রিমিয়াম কটন ক্যাজুয়াল টি-শার্ট', price: 650})" class="w-full bg-indigo-600 text-white py-2 rounded-xl font-medium hover:bg-indigo-700 transition">কার্টে যোগ করুন</button>
-                </div>
-            </div>
+<header>
 
-            <!-- Product 2 -->
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden border hover:shadow-lg transition">
-                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=80" alt="Shirt" class="w-full h-64 object-cover">
-                <div class="p-5">
-                    <h3 class="font-bold text-lg mb-1">স্টাইলিশ ফরমাল শার্ট</h3>
-                    <p class="text-indigo-600 font-bold text-xl mb-4">৳ ১,১০০</p>
-                    <button @click="cart.push({name: 'স্টাইলিশ ফরমাল শার্ট', price: 1100})" class="w-full bg-indigo-600 text-white py-2 rounded-xl font-medium hover:bg-indigo-700 transition">কার্টে যোগ করুন</button>
-                </div>
-            </div>
+<div class="container nav">
 
-            <!-- Product 3 -->
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden border hover:shadow-lg transition">
-                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=500&q=80" alt="Pant" class="w-full h-64 object-cover">
-                <div class="p-5">
-                    <h3 class="font-bold text-lg mb-1">কমফোর্ট গ্যাবার্ডিন প্যান্ট</h3>
-                    <p class="text-indigo-600 font-bold text-xl mb-4">৳ ১,৩৫০</p>
-                    <button @click="cart.push({name: 'কমফোর্ট গ্যাবার্ডিন প্যান্ট', price: 1350})" class="w-full bg-indigo-600 text-white py-2 rounded-xl font-medium hover:bg-indigo-700 transition">কার্টে যোগ করুন</button>
-                </div>
-            </div>
-        </div>
-    </main>
+<a class="logo" href="#home">
+AZMAIN <span>FASHION BD</span>
+</a>
 
-    <!-- Cart Drawer Modal -->
-    <div x-show="showCart" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end" style="display: none;">
-        <div class="bg-white w-full max-w-md h-full p-6 shadow-xl flex flex-col justify-between">
-            <div>
-                <div class="flex justify-between items-center border-b pb-4 mb-4">
-                    <h3 class="text-xl font-bold">আপনার শপিং কার্ট</h3>
-                    <button @click="showCart = false" class="text-gray-500 font-bold text-xl">&times;</button>
-                </div>
-                <template x-if="cart.length === 0">
-                    <p class="text-gray-500 text-center py-8">আপনার কার্ট খালি রয়েছে।</p>
-                </template>
-                <ul class="space-y-4 max-h-96 overflow-y-auto">
-                    <template x-for="(item, index) in cart" :key="index">
-                        <li class="flex justify-between items-center border-b pb-2">
-                            <div>
-                                <h4 class="font-medium" x-text="item.name"></h4>
-                                <p class="text-sm text-gray-500" x-text="'৳ ' + item.price"></p>
-                            </div>
-                            <button @click="cart.splice(index, 1)" class="text-red-500 text-sm">ডিলিট</button>
-                        </li>
-                    </template>
-                </ul>
-            </div>
-            <div>
-                <div class="border-t pt-4 mb-4 flex justify-between font-bold text-lg">
-                    <span>মোট টাকা:</span>
-                    <span x-text="'৳ ' + cart.reduce((sum, item) => sum + item.price, 0)"></span>
-                </div>
-                <button @click="orderSuccess = true; cart = [];" class="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition">অর্ডার কনফার্ম করুন</button>
-            </div>
-        </div>
-    </div>
+<button class="menu" onclick="toggleMenu()">☰ Menu</button>
 
-    <!-- Order Success Modal -->
-    <div x-show="orderSuccess" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" style="display: none;">
-        <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center">
-            <h3 class="text-2xl font-bold text-green-600 mb-2">ধন্যবাদ!</h3>
-            <p class="text-gray-600 mb-6">আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে। খুব শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব।</p>
-            <button @click="orderSuccess = false; showCart = false;" class="bg-indigo-600 text-white px-6 py-2 rounded-xl font-medium w-full">ঠিক আছে</button>
-        </div>
-    </div>
+<nav id="nav">
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
-        <p>&copy; 2026 Azmain Fashion BD. All rights reserved.</p>
-    </footer>
+<a href="#home">Home</a>
+
+<a href="#products">Products</a>
+
+<a href="#why">Why Us</a>
+
+<a href="#reviews">Reviews</a>
+
+<a href="#faq">FAQ</a>
+
+<a href="#contact">Contact</a>
+
+<a href="#account" onclick="openModal('loginModal')">
+Login/Register
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+CUMILLA • BANGLADESH
+</div>
+
+<h1>
+আপনার Style,
+<br>
+<span>আমাদের Quality.</span>
+</h1>
+
+<p>
+Azmain Fashion BD-তে পাওয়া যাবে premium quality
+Shirt, T-Shirt, Jacket ও Trouser।
+Students এবং 15–40 বছর বয়সী young men-এর
+জন্য stylish ও quality-focused fashion collection।
+</p>
+
+<a class="btn" href="#products">
+Order Now
+</a>
+
+<a class="btn dark" href="#contact">
+Contact Us
+</a>
+
+</div>
+
+
+<div class="hero-card">
+
+<h3>
+Premium Men's Collection
+</h3>
+
+<p>
+Black • White • Gray • Ash
+</p>
+
+<p>
+Timeless colours, clean design এবং ভালো মানের কাপড়।
+</p>
+
+<br>
+
+<p>
+<strong>Price Range:</strong>
+৳500 – ৳3000
+</p>
+
+<p>
+<strong>Location:</strong>
+Cumilla, Bangladesh
+</p>
+
+<p>
+<strong>Support:</strong>
+Message anytime, আমরা reply করব।
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section id="products">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Featured Products
+</h2>
+
+<p>
+আপনার পছন্দের men's fashion collection
+</p>
+
+</div>
+
+
+<div class="products">
+
+
+<!-- SHIRT -->
+
+<div class="card">
+
+<div class="product-img">
+SHIRT
+</div>
+
+<div class="product-body">
+
+<h3>
+Premium Shirt
+</h3>
+
+<p>
+Smart casual ও regular wear-এর জন্য
+ভালো মানের stylish shirt।
+</p>
+
+<div class="price">
+৳800 – ৳1,800
+</div>
+
+<button
+class="order-btn"
+onclick="orderProduct('Premium Shirt')">
+
+Order Now
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- T SHIRT -->
+
+<div class="card">
+
+<div class="product-img">
+T-SHIRT
+</div>
+
+<div class="product-body">
+
+<h3>
+Premium T-Shirt
+</h3>
+
+<p>
+Students ও young men-এর everyday
+fashion-এর জন্য comfortable T-shirt।
+</p>
+
+<div class="price">
+৳500 – ৳1,200
+</div>
+
+<button
+class="order-btn"
+onclick="orderProduct('Premium T-Shirt')">
+
+Order Now
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- JACKET -->
+
+<div class="card">
+
+<div class="product-img">
+JACKET
+</div>
+
+<div class="product-body">
+
+<h3>
+Premium Jacket
+</h3>
+
+<p>
+Stylish look ও seasonal wear-এর জন্য
+quality-focused jacket collection।
+</p>
+
+<div class="price">
+৳1,500 – ৳3,000
+</div>
+
+<button
+class="order-btn"
+onclick="orderProduct('Premium Jacket')">
+
+Order Now
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TROUSER -->
+
+<div class="card">
+
+<div class="product-img">
+TROUSER
+</div>
+
+<div class="product-body">
+
+<h3>
+Premium Trouser
+</h3>
+
+<p>
+Clean fit ও smart everyday styling-এর
+জন্য trouser collection।
+</p>
+
+<div class="price">
+৳900 – ৳2,200
+</div>
+
+<button
+class="order-btn"
+onclick="orderProduct('Premium Trouser')">
+
+Order Now
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SPECIAL OFFER ================= -->
+
+<section class="offer">
+
+<div class="container offer-box">
+
+<div>
+
+<h2>
+Special Offer
+</h2>
+
+<p>
+Selected products-এর জন্য special price
+ও seasonal offer পেতে আমাদের সাথে যোগাযোগ করুন।
+</p>
+
+</div>
+
+<a class="btn" href="#contact">
+Get Offer
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section id="why">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Why Choose Azmain Fashion BD?
+</h2>
+
+<p>
+Quality, style এবং customer support —
+আমাদের priority
+</p>
+
+</div>
+
+
+<div class="features">
+
+
+<div class="feature">
+
+<div class="icon">
+✓
+</div>
+
+<h3>
+Quality Focused
+</h3>
+
+<p>
+ভালো মানের কাপড় ও stylish men's wear
+দেওয়ার চেষ্টা করি।
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="icon">
+★
+</div>
+
+<h3>
+Young Men's Style
+</h3>
+
+<p>
+Students এবং 15–40 বছর বয়সী young men-এর
+fashion preference মাথায় রেখে collection।
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="icon">
+৳
+</div>
+
+<h3>
+Budget Friendly
+</h3>
+
+<p>
+প্রায় ৳500 থেকে ৳3000-এর মধ্যে
+বিভিন্ন ধরনের product available।
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section id="reviews">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Customer Reviews
+</h2>
+
+<p>
+আপনার review আমাদের আরও ভালো করতে সাহায্য করবে
+</p>
+
+</div>
+
+
+<div class="reviews">
+
+
+<div class="review">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Product quality ভালো হলে অবশ্যই আবার order করব।”
+</p>
+
+<br>
+
+<small>
+— Customer Review
+</small>
+
+</div>
+
+
+<div class="review">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Youngদের জন্য collection বেশ সুন্দর।
+Price range-ও reasonable.”
+</p>
+
+<br>
+
+<small>
+— Customer Review
+</small>
+
+</div>
+
+
+<div class="review">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Jacket ও shirt collection দেখতে ভালো লেগেছে।”
+</p>
+
+<br>
+
+<small>
+— Customer Review
+</small>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FAQ ================= -->
+
+<section id="faq">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+FAQ
+</h2>
+
+<p>
+Frequently Asked Questions
+</p>
+
+</div>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+আপনাদের product কী কী?
+</summary>
+
+<p>
+Shirt, T-shirt, Jacket এবং Trouser।
+সময় অনুযায়ী নতুন collection যোগ করা হবে।
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Product-এর price কত?
+</summary>
+
+<p>
+বর্তমান listed price range প্রায়
+৳500–৳3000।
+নির্দিষ্ট product-এর price জানতে Contact করুন।
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+কোথায় আপনাদের business?
+</summary>
+
+<p>
+Cumilla, Bangladesh.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+কখন যোগাযোগ করা যাবে?
+</summary>
+
+<p>
+আপনি যেকোনো সময় message রেখে যেতে পারেন।
+আমাদের team available হলে reply করবে।
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+কীভাবে order করব?
+</summary>
+
+<p>
+Product-এর “Order Now” button অথবা
+WhatsApp দিয়ে product name ও প্রয়োজনীয় তথ্য পাঠান।
+</p>
+
+</details>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Contact & Order
+</h2>
+
+<p>
+আপনার পছন্দের product সম্পর্কে জানতে
+আমাদের message করুন
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+<h3>
+Azmain Fashion BD
+</h3>
+
+<p>
+📍 Cumilla, Bangladesh
+</p>
+
+<p>
+💬 WhatsApp:
++880 1868-929445
+</p>
+
+<p>
+🕒 Business Hours:
+Always Open for Messages
+</p>
+
+<p>
+📦 Men's Shirt • T-Shirt • Jacket • Trouser
+</p>
+
+<br>
+
+<a
+class="btn dark"
+target="_blank"
+href="https://wa.me/8801868929445?text=Assalamu%20Alaikum%2C%20Azmain%20Fashion%20BD%20theke%20product%20somporke%20jante%20chai.">
+
+WhatsApp Us
+
+</a>
+
+</div>
+
+
+<!-- ORDER FORM -->
+
+<div class="contact-card">
+
+<h3>
+Order / Booking Form
+</h3>
+
+<form
+class="form"
+onsubmit="sendOrder(event)">
+
+<input
+id="name"
+required
+placeholder="আপনার নাম">
+
+
+<input
+id="customerPhone"
+required
+placeholder="আপনার WhatsApp / Phone">
+
+
+<select
+id="product"
+required>
+
+<option value="">
+Product নির্বাচন করুন
+</option>
+
+<option>
+Premium Shirt
+</option>
+
+<option>
+Premium T-Shirt
+</option>
+
+<option>
+Premium Jacket
+</option>
+
+<option>
+Premium Trouser
+</option>
+
+</select>
+
+
+<textarea
+id="message"
+placeholder="Size, colour বা অন্য প্রয়োজনীয় তথ্য লিখুন">
+</textarea>
+
+
+<button
+class="btn dark"
+type="submit">
+
+Send Order via WhatsApp
+
+</button>
+
+</form>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= LOGIN ================= -->
+
+<section id="account">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Login / Register
+</h2>
+
+<p>
+Customer account feature-এর জন্য প্রস্তুত section
+</p>
+
+</div>
+
+<div style="text-align:center">
+
+<button
+class="btn dark"
+onclick="openModal('loginModal')">
+
+Login / Register
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= POLICIES ================= -->
+
+<section id="policies">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Customer Information
+</h2>
+
+</div>
+
+
+<div class="features">
+
+
+<div class="feature">
+
+<h3>
+Privacy Policy
+</h3>
+
+<p>
+Customer-এর প্রয়োজনীয় তথ্য শুধুমাত্র
+order/contact purpose-এ ব্যবহার করা উচিত।
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<h3>
+Terms & Conditions
+</h3>
+
+<p>
+Product availability, price, delivery এবং
+return/exchange conditions order-এর আগে
+confirm করা হবে।
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<h3>
+Order Policy
+</h3>
+
+<p>
+Order confirm করার আগে product, size,
+colour এবং price customer-এর সাথে
+confirm করা হবে।
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container footer-grid">
+
+
+<div>
+
+<h3>
+AZMAIN FASHION BD
+</h3>
+
+<p>
+Premium quality men's fashion for
+students and young men in Bangladesh.
+</p>
+
+<p>
+Location: Cumilla, Bangladesh
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+Quick Links
+</h4>
+
+<div class="footer-links">
+
+<a href="#home">
+Home
+</a>
+
+<a href="#products">
+Products
+</a>
+
+<a href="#reviews">
+Reviews
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h4>
+Policies
+</h4>
+
+<div class="footer-links">
+
+<a href="#policies">
+Privacy Policy
+</a>
+
+<a href="#policies">
+Terms & Conditions
+</a>
+
+<a href="#account">
+Login/Register
+</a>
+
+<a href="#contact">
+Order/Booking
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="container copyright">
+
+© 2026 Azmain Fashion BD.
+All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- ================= WHATSAPP BUTTON ================= -->
+
+<a
+class="whatsapp"
+target="_blank"
+aria-label="WhatsApp"
+href="https://wa.me/8801868929445?text=Assalamu%20Alaikum%2C%20Azmain%20Fashion%20BD%20theke%20product%20somporke%20jante%20chai.">
+
+💬
+
+</a>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal('loginModal')">
+
+×
+</button>
+
+<h2>
+Login / Register
+</h2>
+
+<p style="color:#666;margin:8px 0 20px">
+
+Customer account system এখন demo mode-এ আছে।
+
+</p>
+
+
+<form
+class="form"
+onsubmit="demoLogin(event)">
+
+<input
+required
+placeholder="Name / Email">
+
+
+<input
+type="password"
+required
+placeholder="Password">
+
+
+<button
+class="btn dark"
+type="submit">
+
+Continue
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function toggleMenu(){
+
+    document
+    .getElementById("nav")
+    .classList
+    .toggle("open");
+
+}
+
+
+function openModal(id){
+
+    document
+    .getElementById(id)
+    .classList
+    .add("active");
+
+}
+
+
+function closeModal(id){
+
+    document
+    .getElementById(id)
+    .classList
+    .remove("active");
+
+}
+
+
+function demoLogin(e){
+
+    e.preventDefault();
+
+    alert(
+        "Login/Register system এখন demo mode-এ আছে। Real account system চালাতে database/backend connect করতে হবে।"
+    );
+
+}
+
+
+function orderProduct(product){
+
+    const text =
+    "Assalamu Alaikum, Azmain Fashion BD. " +
+    "আমি " +
+    product +
+    " order করতে চাই। Product সম্পর্কে বিস্তারিত জানতে চাই।";
+
+    window.open(
+        "https://wa.me/8801868929445?text=" +
+        encodeURIComponent(text),
+        "_blank"
+    );
+
+}
+
+
+function sendOrder(e){
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    const phone =
+    document.getElementById("customerPhone").value;
+
+    const product =
+    document.getElementById("product").value;
+
+    const message =
+    document.getElementById("message").value;
+
+
+    const text =
+    "Assalamu Alaikum, Azmain Fashion BD.%0A%0A" +
+    "Name: " + name + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Product: " + product + "%0A" +
+    "Message: " + message;
+
+
+    window.open(
+        "https://wa.me/8801868929445?text=" +
+        encodeURIComponent(text),
+        "_blank"
+    );
+
+}
+
+
+window.addEventListener("click",function(e){
+
+    if(e.target.classList.contains("modal")){
+
+        e.target.classList.remove("active");
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
