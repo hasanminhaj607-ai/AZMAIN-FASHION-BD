@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azmain Fashion BD - Premium Clothing Store</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800" x-data="{ cart: [], showCart: false, orderSuccess: false }">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-indigo-600">AZMAIN FASHION BD</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button @click="showCart = true" class="relative bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium flex items-center space-x-2 hover:bg-indigo-700 transition">
+                    🛒 কার্ট (<span x-text="cart.length">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl font-extrabold mb-4">স্টাইলিশ ও প্রিমিয়াম কোয়ালিটির পোশাক</h1>
+            <p class="text-lg mb-6">সাশ্রয়ী মূল্যে সেরা ট্রেন্ডি কালেকশন এখন আপনার হাতের মুঠোয়। ঘরে বসেই অর্ডার করুন!</p>
+            <a href="#products" class="bg-white text-indigo-600 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-100 transition">লেকশন দেখুন</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <main id="products" class="max-w-7xl mx-auto px-4 py-12">
+        <h2 class="text-2xl font-bold mb-8 text-center border-b pb-4">আমাদের জনপ্রিয় কালেকশন</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border hover:shadow-lg transition">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80" alt="T-Shirt" class="w-full h-64 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1">প্রিমিয়াম কটন ক্যাজুয়াল টি-শার্ট</h3>
+                    <p class="text-indigo-600 font-bold text-xl mb-4">৳ ৬৫০</p>
+                    <button @click="cart.push({name: 'প্রিমিয়াম কটন ক্যাজুয়াল টি-শার্ট', price: 650})" class="w-full bg-indigo-600 text-white py-2 rounded-xl font-medium hover:bg-indigo-700 transition">কার্টে যোগ করুন</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border hover:shadow-lg transition">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=80" alt="Shirt" class="w-full h-64 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1">স্টাইলিশ ফরমাল শার্ট</h3>
+                    <p class="text-indigo-600 font-bold text-xl mb-4">৳ ১,১০০</p>
+                    <button @click="cart.push({name: 'স্টাইলিশ ফরমাল শার্ট', price: 1100})" class="w-full bg-indigo-600 text-white py-2 rounded-xl font-medium hover:bg-indigo-700 transition">কার্টে যোগ করুন</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border hover:shadow-lg transition">
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=500&q=80" alt="Pant" class="w-full h-64 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-1">কমফোর্ট গ্যাবার্ডিন প্যান্ট</h3>
+                    <p class="text-indigo-600 font-bold text-xl mb-4">৳ ১,৩৫০</p>
+                    <button @click="cart.push({name: 'কমফোর্ট গ্যাবার্ডিন প্যান্ট', price: 1350})" class="w-full bg-indigo-600 text-white py-2 rounded-xl font-medium hover:bg-indigo-700 transition">কার্টে যোগ করুন</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Drawer Modal -->
+    <div x-show="showCart" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end" style="display: none;">
+        <div class="bg-white w-full max-w-md h-full p-6 shadow-xl flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4 mb-4">
+                    <h3 class="text-xl font-bold">আপনার শপিং কার্ট</h3>
+                    <button @click="showCart = false" class="text-gray-500 font-bold text-xl">&times;</button>
+                </div>
+                <template x-if="cart.length === 0">
+                    <p class="text-gray-500 text-center py-8">আপনার কার্ট খালি রয়েছে।</p>
+                </template>
+                <ul class="space-y-4 max-h-96 overflow-y-auto">
+                    <template x-for="(item, index) in cart" :key="index">
+                        <li class="flex justify-between items-center border-b pb-2">
+                            <div>
+                                <h4 class="font-medium" x-text="item.name"></h4>
+                                <p class="text-sm text-gray-500" x-text="'৳ ' + item.price"></p>
+                            </div>
+                            <button @click="cart.splice(index, 1)" class="text-red-500 text-sm">ডিলিট</button>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <div>
+                <div class="border-t pt-4 mb-4 flex justify-between font-bold text-lg">
+                    <span>মোট টাকা:</span>
+                    <span x-text="'৳ ' + cart.reduce((sum, item) => sum + item.price, 0)"></span>
+                </div>
+                <button @click="orderSuccess = true; cart = [];" class="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition">অর্ডার কনফার্ম করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div x-show="orderSuccess" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" style="display: none;">
+        <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center">
+            <h3 class="text-2xl font-bold text-green-600 mb-2">ধন্যবাদ!</h3>
+            <p class="text-gray-600 mb-6">আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে। খুব শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব।</p>
+            <button @click="orderSuccess = false; showCart = false;" class="bg-indigo-600 text-white px-6 py-2 rounded-xl font-medium w-full">ঠিক আছে</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
+        <p>&copy; 2026 Azmain Fashion BD. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
